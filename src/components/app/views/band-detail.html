@@ -2,12 +2,13 @@
     <h1>Band Details</h1>
     <h2>Artists</h2>
     <!-- Show artists details here -->
-    <!-- <pre>{{$resolve.artists | json}}</pre> -->
+    <vertical-list data="$resolve.artists" paginate="3" type="artists"></vertical-list>
     <hr />
 
     <h2>Albums</h2>
     <!-- Show Albums details here -->
     <!-- <pre>{{$resolve.albums | json}}</pre> -->
+     <vertical-list data="$resolve.albums" paginate="3" type="albums"></vertical-list>
     <hr />
 
     <div class="tracks"

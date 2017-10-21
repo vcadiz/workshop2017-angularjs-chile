@@ -1,4 +1,5 @@
 import 'angular-route';
+import {ApiService} from "./services/api";
 
 export function routes($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({
@@ -20,8 +21,10 @@ export function routes($routeProvider, $locationProvider) {
             resolve: {
               artists: ($route, ApiService) =>
                   ApiService.getArtists($route.current.params.bandId),
-              // albums: //Implement API call to get albums
-            },
+                albums: ($route, ApiService) =>
+                    ApiService.getAlbums($route.current.params.bandId)
+            }
+
         })
         .when('/band/:bandId/album/:albumId/', {
             templateUrl: '/components/app/views/band-detail.html',
